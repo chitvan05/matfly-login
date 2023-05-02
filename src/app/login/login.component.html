@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="col-md-12 ">
+        <div class="col-md-4 mt-150">
+            <div class="card p-50">
+                <div class="card-body">
+                    <form [formGroup]="loginForm">
+                        <h4 class="text-center">Log In</h4>
+                        <br>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="floatingInput" formControlName="email" placeholder="name@example.com" >
+                            <div *ngIf="(loginForm.controls['email'].touched && loginForm.controls['email'].errors.email)" class="alert alert-danger" style="height: 50px;" >
+                               <p> Please enter valid email </p> 
+                            </div>
+                            <div *ngIf="(loginForm.controls['email'].touched && loginForm.controls['email'].errors.required)" class="alert alert-danger" style="height: 50px;" >
+                              <p> Please enter email </p>  
+                            </div>
+
+                            <label for="floatingInput">Email address</label>
+                        </div>
+                        <div class="form-floating input-group">
+                            
+                        
+                            <input [type]="password" class="form-control" id="floatingPassword" formControlName="password" placeholder="Password">
+                            <span class="input-group-addon" (click)="togglePassword()"><i class="fa fa-eye" style="margin-top: 22px;" *ngIf="!show"></i></span>
+                            <span class="input-group-addon" (click)="togglePassword()"><i class="fa fa-eye-slash" style="margin-top: 22px;" *ngIf="show"></i></span>
+                        <label for="floatingPassword">Password</label>
+
+                        </div>
+
+                        
+                        
+                        <br>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <div class="row">
+                                <div class="col">
+                                    <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                                </div>
+                                <div class="col">
+                                    <label class="form-check-label" for="exampleCheck1">Forgot password</label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button type="submit"  class="btn btn-primary w-100" [disabled]="!this.loginForm.valid" (click)="loginData(this.loginForm)" >Sign In</button>
+                        <hr>
+                        <h4 class="text-center">Log In via</h4>
+                        <div class="row">
+
+                        
+                        <div class="col">
+                            <img src="../../assets/images/facebook.png"  width = '50px' alt="">
+                        </div>
+                        <div class="col">
+                            <img src="../../assets/images/google.png" class="g-icon" width = '50px' alt="">
+                        </div>
+                        <div class="col">
+                            <img src="../../assets/images/apple.png"  width = '50px' style="padding: 10px;" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p class="text-center">Doesn't have an account?</p>
+                        <br>
+                        <u class="text-center"> Create Account </u>
+                    </div>
+                    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
